@@ -1,0 +1,25 @@
+.even-row{
+    background-color: white;
+}
+
+
+.odd-row{
+    background-color: #f2f2f2;
+}
+
+.header-row{
+    background-color: #1b1e21;
+    color: white;
+}
+
+#streamSubjects, #teachers, tr, th, td{
+    padding: 10px;
+}
+
+/*#streamSubjects, #teachers {*/
+/*    display: none;*/
+/*}*/
+
+/* #streamSubjects:target, #teachers:target {*/
+/*    display: block;*/
+/*}*/
