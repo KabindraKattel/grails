@@ -14,7 +14,8 @@ class StudentController {
         studentService.setUsername(username)
         final def stream = studentService.streamName
         final def subjects = studentService.allSubjectsName
-//        final def teachers = studentService.allTeachersName
+//        final def teachers =
+                studentService.allTeachersName
         println("stream is ${stream}")
         println("subject is ${subjects}")
 //        println("stream is ${teachers}")

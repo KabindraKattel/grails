@@ -2,11 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="demo1.demo1.integrationTest" target="11" />
       <module name="demo1.demo1.integrationTest~1" target="11" />
-      <module name="demo1.demo1.main" target="11" />
       <module name="demo1.demo1.main~1" target="11" />
-      <module name="demo1.demo1.test" target="11" />
       <module name="demo1.demo1.test~1" target="11" />
     </bytecodeTargetLevel>
   </component>

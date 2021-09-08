@@ -25,7 +25,12 @@ class StudentService {
 
    private List<Teacher> getTeachers(){
       def subjects = getSubjects()
-      subjects==[]?[]:Teacher.findAllBySubjects(subjects.toSet())
+//      subjects==[]?[]:Teacher.findAllBySubjects(subjects.toSet())
+      def teacherCriteria = Teacher.createCriteria()
+      def teachers = teacherCriteria.list {
+      }
+      print(teachers)
+      []
    }
 
    String getStreamName(){
