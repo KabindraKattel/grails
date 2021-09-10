@@ -19,14 +19,11 @@ class TeacherService {
                 eq("id", teacherId)
             }
         } as List<Subject>
-        subjects == []?[]:subjects
-//        def stream = getStream()
-//        stream == null?[]: Subject.findAllByStream(stream)
     }
 
     private List<Stream> getAllStreams() {
         def subjectIds = allSubjects.stream().map({ subject -> subject.id }).collect(Collectors.toList())
-        Stream.createCriteria().list {
+        Stream.withCriteria {
             subjectIds.each {
                 id -> eq("id", id)
             }
