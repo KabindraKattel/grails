@@ -1,4 +1,6 @@
-<br><br>
+<br>
+<p><b>Username:</b> ${username}</p>
+<br>
 <p><b>Stream:</b> ${stream}</p>
 <br>
 <table>

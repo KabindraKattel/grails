@@ -10,16 +10,17 @@ class StudentController {
 
 
     def index(){
+
         def username = ((User) springSecurityService.currentUser).username
         studentService.setUsername(username)
         final def stream = studentService.streamName
         final def subjects = studentService.allSubjectsName
-//        final def teachers =
+        final def teachers =
                 studentService.allTeachersName
         println("stream is ${stream}")
         println("subject is ${subjects}")
-//        println("stream is ${teachers}")
-        [username:username,stream: stream, subjects:subjects]
+        println("stream is ${teachers}")
+        [username:username,stream: stream, subjects:subjects, teachers:teachers]
     }
 
     def listStreamSubjects(){

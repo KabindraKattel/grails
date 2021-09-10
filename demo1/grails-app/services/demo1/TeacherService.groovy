@@ -1,18 +1,49 @@
 package demo1
 
-import grails.gorm.services.Service
+import grails.gorm.transactions.Transactional
 
-@Service(Teacher)
-interface TeacherService {
+import java.util.stream.Collectors
 
-    Teacher get(Serializable id)
+@Transactional
+class TeacherService {
+    String username
 
-    List<Teacher> list(Map args)
+    Student getLoggedInTeacher(){
+        return username==null?null:Student.findByUser_name(username)
+    }
 
-    Long count()
+    private Stream getStream() {
+        Stream.findById(getLoggedInStudent().streamId)
+    }
 
-    void delete(Serializable id)
+    private List<Subject> getAllSubjects() {
+        def stream = getStream()
+        stream == null?[]: Subject.findAllByStream(stream)
+    }
 
-    Teacher save(Teacher Teacher)
+    private List<Teacher> getAllTeachers(){
+        def teacherCriteria = Teacher.createCriteria()
+        def subjectIds = allSubjects == []?[]:allSubjects.stream().map({ subject -> subject.id }).collect(Collectors.toList())
+        subjectIds.each {id-> println(id)}
+        def teachers = teacherCriteria.list {
+            subjects {
+                subjectIds.each {id -> eq("id",id)}
+            }
+        } as List<Teacher>
+        subjectIds==[]?[]:teachers
+    }
+
+    String getStreamName(){
+        def stream = getStream()
+        stream == null?null:stream.name
+    }
+
+    List<String> getAllSubjectsName(){
+        allSubjects.stream().map({ subject -> subject.name }).collect(Collectors.toList())
+    }
+
+    List<String> getAllTeachersName(){
+        allTeachers.stream().map({ teacher -> teacher.name }).collect(Collectors.toList())
+    }
 
 }

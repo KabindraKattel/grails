@@ -4,7 +4,7 @@
 
 
 .odd-row{
-    background-color: #f2f2f2;
+    background-color: #bab8b8;
 }
 
 .header-row{
@@ -14,6 +14,10 @@
 
 #streamSubjects, #teachers, tr, th, td{
     padding: 10px;
+}
+
+table {
+    border: 1px solid black;
 }
 
 /*#streamSubjects, #teachers {*/
