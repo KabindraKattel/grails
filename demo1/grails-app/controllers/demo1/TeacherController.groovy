@@ -6,6 +6,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class TeacherController {
     def teacherService = new TeacherService()
     def springSecurityService
+    static allowedMethods = [index: 'GET']
 
 
     def index() {

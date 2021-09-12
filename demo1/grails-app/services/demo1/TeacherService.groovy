@@ -8,6 +8,10 @@ import java.util.stream.Collectors
 class TeacherService {
     String username
 
+    List<Teacher> getPagedTeacherResults(int offset) {
+        Teacher.list(offset: offset, max: 10)
+    }
+
     Teacher getLoggedInTeacher() {
         username == null ? null : Teacher.findByUser_name(username)
     }

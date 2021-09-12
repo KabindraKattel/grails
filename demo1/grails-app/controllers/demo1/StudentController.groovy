@@ -1,15 +1,16 @@
 package demo1
 
-import grails.plugin.springsecurity.SpringSecurityService
+
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_STUDENT')
 class StudentController {
     final def studentService = new StudentService()
     def springSecurityService
+    static allowedMethods = [index: 'GET']
 
 
-    def index(){
+    def index() {
 
         def username = ((User) springSecurityService.currentUser).username
         studentService.setUsername(username)
@@ -20,10 +21,6 @@ class StudentController {
         println("stream is ${stream}")
         println("subject is ${subjects}")
         println("stream is ${teachers}")
-        [username:username,stream: stream, subjects:subjects, teachers:teachers]
-    }
-
-    def listStreamSubjects(){
-
+        [username: username, stream: stream, subjects: subjects, teachers: teachers]
     }
 }
