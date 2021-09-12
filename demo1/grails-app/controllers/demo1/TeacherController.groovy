@@ -8,11 +8,10 @@ class TeacherController {
     def springSecurityService
 
 
-    def index(){
+    def index() {
         def username = ((User) springSecurityService.currentUser).username
         teacherService.setUsername(username)
-        teacherService.allSubjectsName
-//        [username:username]
+        [username: username, subjects: teacherService.allSubjects, students: teacherService.allStudents]
     }
 
 }

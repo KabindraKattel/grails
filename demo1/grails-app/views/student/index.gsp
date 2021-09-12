@@ -1,15 +1,14 @@
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <asset:stylesheet src="student-index.css" />
+    <asset:stylesheet src="student-teacher-index.css"/>
 </head>
 
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <nav class="container">
     <ul class="nav nav-tabs">
@@ -19,11 +18,13 @@
 
     <div class="tab-content">
         <div id="streamSubjects" class="tab-pane fade in active">
-                <g:render template="listStreamSubjects" model="['username':username,'stream':stream, 'subjects':subjects]"/>
-    </div>
+            <g:render template="listStreamSubjects"
+                      model="['username': username, 'stream': stream, 'subjects': subjects]"/>
+        </div>
+
         <div id="teachers" class="tab-pane fade">
-                <g:render template="listTeachers" model="['username':username,'teachers':teachers]"/>
-            </div>
+            <g:render template="listTeachers" model="['username': username, 'teachers': teachers]"/>
+        </div>
     </div>
 </nav>
 

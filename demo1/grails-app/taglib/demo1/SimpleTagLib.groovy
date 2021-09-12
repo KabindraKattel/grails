@@ -16,4 +16,9 @@ class SimpleTagLib {
     def fillSharedDiv = { attrs->
         out <<render(template:attrs.template, model: attrs.model)
     }
+
+    def table = { attrs, body ->
+
+
+    }
 }

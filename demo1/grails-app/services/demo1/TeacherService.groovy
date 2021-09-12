@@ -8,13 +8,13 @@ import java.util.stream.Collectors
 class TeacherService {
     String username
 
-    Teacher getLoggedInTeacher(){
-        username==null?null:Teacher.findByUser_name(username)
+    Teacher getLoggedInTeacher() {
+        username == null ? null : Teacher.findByUser_name(username)
     }
 
-    private List<Subject> getAllSubjects() {
+    List<Subject> getAllSubjects() {
         Long teacherId = loggedInTeacher.id
-        def subjects = Subject.createCriteria().list {
+        Subject.createCriteria().list {
             teachers {
                 eq("id", teacherId)
             }
@@ -30,19 +30,11 @@ class TeacherService {
         } as List<Stream>
     }
 
-    private List<Student> getAllStudents(){
+    List<Student> getAllStudents() {
         def streamIds = allStreams.stream().map({ stream -> stream.id }).collect(Collectors.toList())
-        def subjects = Student.createCriteria().list {
-                streamIds.each {id -> eq("id",id)}
-        } as List<Subject>
-    }
-
-    String getAllStreamNames(){
-        allStreams.stream().map({ stream -> stream.name }).collect(Collectors.toList())
-    }
-
-    List<String> getAllSubjectsName(){
-        allSubjects.stream().map({ subject -> subject.name }).collect(Collectors.toList())
+        Student.createCriteria().list {
+            streamIds.each { id -> eq("id", id) }
+        } as List<Student>
     }
 
 }
